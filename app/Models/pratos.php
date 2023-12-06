@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class pratos extends Model
 {
     use HasFactory;
+    protected $table = 'pratos';
+
+    protected $fillable = ['nome', 'valor', 'repetivel'];
 }

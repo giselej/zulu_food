@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class comanda extends Model
 {
     use HasFactory;
+
+    protected $table = 'comandas';
+
+    protected $fillable = ['tag', 'qrcode',];
 }

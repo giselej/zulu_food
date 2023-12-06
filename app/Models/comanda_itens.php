@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class comanda_itens extends Model
 {
     use HasFactory;
+    protected $table = 'comanda-itens';
+
+    protected $fillable = ['comanda-id',];
 }

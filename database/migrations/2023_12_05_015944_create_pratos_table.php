@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('pratos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('nome');
+            $table->float('valor');
+            $table->boolean('repetivel');
         });
     }
 
@@ -25,3 +28,4 @@ return new class extends Migration
         Schema::dropIfExists('pratos');
     }
 };
+

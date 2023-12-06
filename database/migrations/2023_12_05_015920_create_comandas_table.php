@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('comandas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('tag');
+            $table->float('qrcode');
+
         });
     }
 
@@ -25,3 +28,6 @@ return new class extends Migration
         Schema::dropIfExists('comandas');
     }
 };
+
+
+

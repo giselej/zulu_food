@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cartaos', function (Blueprint $table) {
+        Schema::create('pagamentos', function (Blueprint $table) {
             $table->id();
+            $table->string('comanda');
+            $table->string('tipo-pagamento');
+            $table->float()
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cartaos');
+        Schema::dropIfExists('pagamentos');
     }
 };
