@@ -10,5 +10,5 @@ class pratos extends Model
     use HasFactory;
     protected $table = 'pratos';
 
-    protected $fillable = ['nome', 'valor', 'repetivel'];
+    protected $fillable = ['nome', 'valor', ];
 }
