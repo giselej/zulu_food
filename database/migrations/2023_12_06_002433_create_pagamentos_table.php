@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->id();
             $table->string('comanda');
-            $table->string('tipo-pagamento');
-            $table->float()
+            $table->string('tipo_pagamento');
+            $table->float('valor');
             $table->timestamps();
         });
     }

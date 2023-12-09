@@ -9,7 +9,7 @@ class comanda extends Model
 {
     use HasFactory;
 
-    protected $table = 'comandas';
+    protected $table = 'comanda';
 
     protected $fillable = ['tag', 'qrcode',];
 }

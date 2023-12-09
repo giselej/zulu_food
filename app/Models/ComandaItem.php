@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class comanda_itens extends Model
+class comanda_item extends Model
 {
     use HasFactory;
-    protected $table = 'comanda-itens';
+    protected $table = 'comanda_itens';
 
-    protected $fillable = ['comanda-id',];
+    protected $fillable = ['id',];
 }

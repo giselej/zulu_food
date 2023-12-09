@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nome');
             $table->float('valor');
-            $table->boolean('repetivel');
+            
         });
     }
 
