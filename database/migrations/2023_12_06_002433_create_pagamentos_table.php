@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->id();
-            $table->string('comanda');
+            $table->unsignedBigInteger('comanda_id');
+            $table->foreign('comanda_id')->references('id')->on('comandas');
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('users');
             $table->string('tipo_pagamento');
             $table->float('valor');
             $table->timestamps();

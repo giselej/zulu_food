@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('quantidade');
+            $table->string('observacao');
             $table->unsignedBigInteger('comanda_id');
             $table->foreign('comanda_id')->references('id')->on('comandas');
-            $table->unsignedBigInteger('pratos_id');
-            $table->foreign('pratos_id')->references('id')->on('pratos');
+            $table->unsignedBigInteger('prato_id');
+            $table->foreign('prato_id')->references('id')->on('pratos');
         });
     }
 

@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comanda extends Model
+class Pagamento extends Model
 {
     use HasFactory;
+    protected $table = 'pagamentos';
 
-    protected $table = 'comandas';
+     public function comada()
+    {
+        return $this->belongsTo(Comanda::class, 'comanda_id', 'id');
+    }
 
     public function usuario()
     {
