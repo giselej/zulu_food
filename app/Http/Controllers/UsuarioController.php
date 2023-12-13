@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * listar
      */
     public function index()
     {
-        //
+        $lista = \App\Models\User::all();
+        return view('usuarios.listar',compact('lista'));
     }
 
     /**
@@ -19,7 +20,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('usuarios.cadastrar');
     }
 
     /**
@@ -35,7 +37,8 @@ class UsuarioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $usuario = \App\Models\User::find($id);
+        return view('usuarios.mostrar',compact('usuario'));
     }
 
     /**
@@ -43,7 +46,8 @@ class UsuarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $usuario = \App\Models\User::find($id);
+        return view('usuarios.editar',compact('usuario'));
     }
 
     /**

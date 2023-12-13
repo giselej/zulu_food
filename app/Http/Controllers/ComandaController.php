@@ -11,7 +11,8 @@ class ComandaController extends Controller
      */
     public function index()
     {
-        //
+        $lista = \App\Models\comanda::all();
+        return view('comandas.listar',compact('lista'));
     }
 
     /**
@@ -19,7 +20,7 @@ class ComandaController extends Controller
      */
     public function create()
     {
-        //
+        return view('comandas.cadastrar');
     }
 
     /**

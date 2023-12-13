@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resources([
+    'pratos' => App\Http\Controllers\PratoController::class,
+    'comandas' => App\Http\Controllers\ComandaController::class,
+    'pagamentos' => App\Http\Controllers\PagamentoController::class,
+    'usuarios' => App\Http\Controllers\UsuarioController::class,
+]);

@@ -11,7 +11,8 @@ class PratoController extends Controller
      */
     public function index()
     {
-        //
+        $lista = \App\Models\Prato::all();
+        return view('pratos.listar',compact('lista'));
     }
 
     /**
@@ -19,7 +20,7 @@ class PratoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pratos.cadastrar');
     }
 
     /**

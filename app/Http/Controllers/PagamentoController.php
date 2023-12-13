@@ -11,7 +11,8 @@ class PagamentoController extends Controller
      */
     public function index()
     {
-        //
+        $lista = \App\Models\pagamento::all();
+        return view('pagamentos.listar',compact('lista')); //
     }
 
     /**
@@ -19,7 +20,7 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pagamentos.cadastrar');
     }
 
     /**
