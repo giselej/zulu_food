@@ -28,15 +28,21 @@ class PratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prato=new \App\Models\Prato();
+        $prato->nome=$request->nome;
+        $prato->valor=$request->valor;
+        $prato->save();
+        return redirect()->route('pratos.index');
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $prato = \App\Models\Prato::find($id);
+        return view('pratos.mostrar',compact('prato'));
     }
 
     /**
@@ -44,7 +50,8 @@ class PratoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $prato = \App\Models\Prato::find($id);
+        return view('pratos.editar',compact('prato'));
     }
 
     /**
@@ -52,7 +59,11 @@ class PratoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $prato = \App\Models\Prato::find($id);
+        $prato->nome=$request->nome;
+        $prato->valor=$request->valor;
+        $prato->save();
+        return redirect()->route('pratos.index');
     }
 
     /**
@@ -60,6 +71,7 @@ class PratoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        \App\Models\Prato::destroy($id);
+        return redirect()->route('pratos.index');
     }
 }

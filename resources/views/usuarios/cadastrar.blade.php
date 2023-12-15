@@ -7,7 +7,8 @@
 <form action="{{route('usuarios.store')}}" method="POST" >
     @csrf
     nome: <input type="text" name="nome">
-    nome: <input type="text" name="email">
+    email: <input type="text" name="email">
+    senha: <input type="password" name="senha">
     <button type="submit">cadastrar</button>
 
 </form>

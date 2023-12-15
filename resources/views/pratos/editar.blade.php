@@ -4,12 +4,11 @@
     <a href="{{route('comandas.index')}}">comandas</a>
     <a href="{{route('pagamentos.index')}}">pagamentos</a>
 </nav>
-<form action="{{route('comandas.update')}}" method="POST" >
+<form action="{{route('pratos.update',$prato)}}" method="POST" >
     @csrf
-
-    <input type="hidden" name="id" value="{{$prato->id}}">
+    @method('put')
     nome: <input type="text" name="nome" value="{{$prato->nome}}">
     valor: <input type="text" name="valor" value="{{$prato->valor}}">
-
+    <button type="submit">cadastrar</button>
 
 </form>

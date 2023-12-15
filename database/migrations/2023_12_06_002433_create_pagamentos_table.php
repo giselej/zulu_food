@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('comanda_id');
             $table->foreign('comanda_id')->references('id')->on('comandas');
-            $table->unsignedBigInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('users');
             $table->string('tipo_pagamento');
             $table->float('valor');
             $table->timestamps();

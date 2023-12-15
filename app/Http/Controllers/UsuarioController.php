@@ -29,7 +29,12 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario=new \App\Models\User();
+        $usuario->name=$request->nome;
+        $usuario->email=$request->email;
+        $usuario->password=$request->senha;
+        $usuario->save();
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -55,7 +60,12 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $usuario = \App\Models\User::find($id);
+        $usuario->name=$request->nome;
+        $usuario->email=$request->email;
+        $usuario->password=$request->senha;
+        $usuario->save();
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -63,6 +73,8 @@ class UsuarioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = \App\Models\User::find($id);
+        $usuario->delete();
+        return redirect()->route('usuarios.index');
     }
 }

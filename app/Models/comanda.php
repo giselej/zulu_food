@@ -11,9 +11,6 @@ class Comanda extends Model
 
     protected $table = 'comandas';
 
-    public function usuario()
-    {
-        return $this->belongsTo(User::class, 'usuario_id', 'id');
-    }
+    
 
 }

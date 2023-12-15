@@ -28,15 +28,23 @@ class PagamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pagamento=new \App\Models\Pagamento();
+        $pagamento->tipo_pagamento=$request->tipo;
+        $pagamento->valor=$request->valor;
+        $pagamento->comanda_id=$request->comanda_id;
+        $pagamento->save();
+        return redirect()->route('pagamentos.index');
+
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $pagamento = \App\Models\Pagamento::find($id);
+        return view('pagamentos.mostrar',compact('pagamento'));
     }
 
     /**
@@ -44,7 +52,9 @@ class PagamentoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
+        $pagamento = \App\Models\Pagamento::find($id);
+        return view('pagamentos.editar',compact('pagamento'));
     }
 
     /**
@@ -52,7 +62,12 @@ class PagamentoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $pagamento = \App\Models\Pagamento::find($id);
+        $pagamento->tipo_pagamento=$request->tipo;
+        $pagamento->valor=$request->valor;
+        $pagamento->comanda_id=$request->comanda_id;
+        $pagamento->save();
+        return redirect()->route('pagamentos.index');
     }
 
     /**
@@ -60,6 +75,8 @@ class PagamentoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pagamento = \App\Models\Pagamento::find($id);
+        $pagamento->delete();
+        return redirect()->route('pagamentos.index');
     }
 }

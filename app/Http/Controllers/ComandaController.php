@@ -28,15 +28,22 @@ class ComandaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comanda=new \App\Models\Comanda();
+        $comanda->numero_mesa=$request->numero_mesa;
+        $comanda->cliente=$request->cliente;
+        $comanda->save();
+        return redirect()->route('comandas.index');
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+
+        $comanda = \App\Models\Comanda::find($id);
+        return view('comandas.mostrar',compact('comanda'));
     }
 
     /**
@@ -44,7 +51,9 @@ class ComandaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
+        $comanda = \App\Models\Comanda::find($id);
+        return view('comandas.editar',compact('comanda'));
     }
 
     /**
@@ -52,7 +61,11 @@ class ComandaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $comanda = \App\Models\Comanda::find($id);
+        $comanda->numero_mesa=$request->numero_mesa;
+        $comanda->cliente=$request->cliente;
+        $comanda->save();
+        return redirect()->route('comandas.index');
     }
 
     /**
@@ -60,6 +73,7 @@ class ComandaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        \App\Models\Comanda::destroy($id);
+        return redirect()->route('comandas.index');
     }
 }

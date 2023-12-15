@@ -5,12 +5,21 @@
     <a href="{{route('pagamentos.index')}}">pagamentos</a>
 </nav>
 <a href="{{route('comandas.create')}}">cadastrar</a>
+<table border="1">
+    @foreach ($lista as $comanda)
+    <tr>
+        <td> {{$comanda->id}} </td>
+        <td> {{$comanda->numero_mesa}} </td>
+        <td> {{$comanda->cliente}} </td>
+        <td> <a href="{{route('comandas.show',$comanda)}}">Mostrar</a></td>
+        <td> <a href="{{route('comandas.edit',$comanda)}}">cadastrar</a></td>
+        <td>
+            <form action="{{route('comandas.destroy',$comanda)}}" method="POST">
+            @csrf @method('delete')
+            <button type="submit">deletar</button>
+            </form>
+        </td>
 
-@foreach ($lista as $comanda)
-<tr>
-    <td> {{$comanda->id}} </td>
-    <td> {{$comanda->numero_mesa}} </td>
-    <td> {{$comanda->cliente}} </td>
-    <td> {{$comanda->usuario->name}} </td>
-</tr>
-@endforeach
+    </tr>
+    @endforeach
+</table>

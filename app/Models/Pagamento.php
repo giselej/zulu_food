@@ -15,9 +15,7 @@ class Pagamento extends Model
         return $this->belongsTo(Comanda::class, 'comanda_id', 'id');
     }
 
-    public function usuario()
-    {
-        return $this->belongsTo(User::class, 'usuario_id', 'id');
-    }
+
+    
 
 }
