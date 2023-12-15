@@ -20,7 +20,8 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        return view('pagamentos.cadastrar');
+        $comandas=\App\Models\Comanda::all();
+        return view('pagamentos.cadastrar',compact('comandas'));
     }
 
     /**
@@ -52,9 +53,9 @@ class PagamentoController extends Controller
      */
     public function edit(string $id)
     {
-
+        $comandas=\App\Models\Comanda::all();
         $pagamento = \App\Models\Pagamento::find($id);
-        return view('pagamentos.editar',compact('pagamento'));
+        return view('pagamentos.editar',compact('pagamento','comandas'));
     }
 
     /**

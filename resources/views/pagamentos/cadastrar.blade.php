@@ -6,9 +6,17 @@
 </nav>
 <form action="{{route('pagamentos.store')}}" method="POST" >
     @csrf
-    :tipo <input type="text" name="tipo">
+    tipo <select name="tipo">
+        <option value="pix">Pix</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="cartao">Cartão</option>
+        </select>
     valor: <input type="text" name="valor">
-    comanda_id: <input type="text" name="comanda_id">
-    <button type="submit">cadastrar</button>
+    numero da mesa<select name="comanda_id">
+        @foreach ($comandas as $comanda )
+            <option value="{{$comanda->id}}">{{$comanda->numero_mesa}}</option>
+        @endforeach
+        </select>
+         <button type="submit">cadastrar</button>
 
 </form>

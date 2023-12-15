@@ -8,9 +8,17 @@
     @csrf
     @method('put')
     <input type="hidden" name="id" value="{{$pagamento->id}}">
-    tipo: <input type="text" name="tipo" value="{{$pagamento->tipo}}">
+    tipo <select name="tipo">
+        <option value="pix">Pix</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="cartao">Cartão</option>
+        </select>
     valor: <input type="text" name="valor" value="{{$pagamento->valor}}">
-    comanda-id: <input type="text" name="comanda_id" value="{{$pagamento->comanda_id}}">
+    numero da mesa<select name="comanda_id">
+    @foreach ($comandas as $comanda )
+        <option value="{{$comanda->id}}">{{$comanda->numero_mesa}}</option>
+    @endforeach
+    </select>
     <button type="submit">cadastrar</button>
 
 </form>
