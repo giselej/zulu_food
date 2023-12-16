@@ -10,12 +10,12 @@ class Pagamento extends Model
     use HasFactory;
     protected $table = 'pagamentos';
 
-     public function comada()
+     public function comanda()
     {
         return $this->belongsTo(Comanda::class, 'comanda_id', 'id');
     }
 
 
-    
+
 
 }
